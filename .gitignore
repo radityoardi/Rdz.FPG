@@ -3,3 +3,7 @@
 ################################################################################
 
 /src/Rdz.FPG/.vs/Rdz.FPG/v16/Server/sqlite3
+*.suo
+/src/Rdz.FPG/bin
+/src/Rdz.FPG/obj/Debug
+/src/Rdz.FPG/packages

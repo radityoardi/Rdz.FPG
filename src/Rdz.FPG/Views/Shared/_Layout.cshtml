@@ -1,0 +1,66 @@
+﻿@using Rdz.FPG
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@ViewBag.Title - My ASP.NET Application</title>
+	@Scripts.Render("~/bundles/modernizr")
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js" integrity="sha256-oE03O+I6Pzff4fiMqwEGHbdfcW7a3GRRxlL+U49L5sA=" crossorigin="anonymous"></script>
+	@Scripts.Render("~/bundles/fpg")
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		@Html.ActionLink("Rdz.FPG", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarColor02">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">@Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link" })</li>
+				<li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", new { @class = "nav-link" })</li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<div class="form-group">
+					<select class="custom-select" onchange="changeTheme(this);">
+						<option selected="">Select a theme</option>
+						<option value="cerulean">Cerulean</option>
+						<option value="cosmo">Cosmo</option>
+						<option value="cyborg">Cyborg</option>
+						<option value="darkly">Darkly</option>
+						<option value="flatly">Flatly</option>
+						<option value="journal">Journal</option>
+						<option value="litera">Litera</option>
+						<option value="lumen">Lumen</option>
+						<option value="lux">Lux</option>
+						<option value="materia">Materia</option>
+						<option value="minty">Minty</option>
+						<option value="pulse">Pulse</option>
+						<option value="sandstone">Sandstone</option>
+						<option value="simplex">Simplex</option>
+						<option value="sketchy">Sketchy</option>
+						<option value="slate">Slate</option>
+						<option value="solar">Solar</option>
+						<option value="spacelab">Space Lab</option>
+						<option value="superhero">Superhero</option>
+						<option value="united">United</option>
+						<option value="yeti">Yeti</option>
+					</select>
+				</div>
+			</form>
+		</div>
+	</nav>
+	<div class="container body-content">
+		@RenderBody()
+		<hr />
+		<footer>
+			<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+		</footer>
+	</div>
+	@RenderSection("scripts", required: false)
+</body>
+</html>
