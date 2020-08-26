@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,6 +24,14 @@ namespace Rdz.FPG.Controllers
 		public ActionResult Contact()
 		{
 			return View();
+		}
+
+		public ActionResult BingImageToday(int numberOfImages, string cultureInfo)
+		{
+			var client = new RestClient("https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=" + numberOfImages.ToString() + "&mkt=" + cultureInfo);
+			var response = client.Execute(new RestRequest());
+			return new ContentResult { Content = response.Content, ContentType = "application/json" };
+			//return Json(System.Web.Helpers.Json.Decode(response.Content), JsonRequestBehavior.AllowGet);
 		}
 
 	}
